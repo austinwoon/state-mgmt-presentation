@@ -4,6 +4,7 @@ import { useState } from "react";
 import { selectedIdAtom } from "./atoms";
 import { Todo, todoData } from "./data/todos";
 import { FilterMenu } from "./FilterMenu";
+import makeComponentExpensive from "./makeComponentExpensive";
 
 export type TodoDisplay = {
   data: Todo;
@@ -47,6 +48,7 @@ export const TodoPage = () => {
 };
 
 const TodoCard = ({ id }: { id: string }) => {
+  // makeComponentExpensive();
   const [todoAtom] = useAtom(todosAtomMapAtom);
   const [todo, setTodo] = useAtom(todoAtom[id]);
 
