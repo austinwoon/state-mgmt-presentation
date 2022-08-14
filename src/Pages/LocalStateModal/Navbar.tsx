@@ -1,14 +1,10 @@
-import { HStack, Heading, Button, Box, Text } from "@chakra-ui/react";
+import { HStack, Heading } from "@chakra-ui/react";
+import { navbarStyles } from "../../styles";
 import { InternalSection1 } from "./InternalSections";
 
 export const NavBar = ({ openModal }: { openModal: () => void }) => {
   return (
-    <HStack
-      paddingLeft="10"
-      width="100vw"
-      height="25vh"
-      backgroundColor="orange.200"
-    >
+    <HStack {...navbarStyles}>
       <Heading>Navbar</Heading>
       <InternalSection1 openModal={openModal} />
     </HStack>
