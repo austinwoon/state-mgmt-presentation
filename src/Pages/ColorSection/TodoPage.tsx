@@ -12,7 +12,7 @@ export type TodoDisplay = {
 
 type TodoColor = Todo & { color: string };
 
-const todosAtom = atom(todoData);
+export const todosAtom = atom(todoData);
 
 export const todoAtomsAtom = atom<PrimitiveAtom<TodoColor>[]>((get) => {
   const todos = get(todosAtom);
@@ -44,7 +44,7 @@ const TodoCard = ({
   index: number;
   todoAtomConfig: PrimitiveAtom<TodoColor>;
 }) => {
-  makeComponentExpensive(20);
+  makeComponentExpensive(40);
   const [todo, setTodo] = useAtom(todoAtomConfig);
 
   const setSelectedIdAtom = useSetAtom(selectedIndexAtom);
