@@ -12,7 +12,7 @@ export const InternalSection1 = ({ openModal }: { openModal: () => void }) => {
 export const InternalSection2 = ({ openModal }: { openModal: () => void }) => {
   return (
     <Box border="5px dashed blue" padding="2">
-      <Text>Internal section 1</Text>
+      <Text>Internal section 2</Text>
       <Button onClick={openModal}>open modal</Button>
     </Box>
   );

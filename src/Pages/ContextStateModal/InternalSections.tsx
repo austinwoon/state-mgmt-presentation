@@ -15,7 +15,7 @@ export const InternalSection2 = () => {
   const { toggleIsOpen } = useContext(IsOpenContext);
   return (
     <Box border="5px dashed blue" padding="2">
-      <Text>Internal section 1</Text>
+      <Text>Internal section 2</Text>
       <Button onClick={toggleIsOpen}>open modal</Button>
     </Box>
   );
