@@ -13,7 +13,7 @@ import { useCallback, useState } from "react";
 import { NavBar } from "./Navbar";
 import { SideBar } from "./Sidebar";
 
-const LocalStateModalPage = () => {
+const Page = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = useCallback(() => setIsOpen(true), [setIsOpen]);
@@ -54,4 +54,4 @@ const ModalContents = ({
   );
 };
 
-export default LocalStateModalPage;
+export default Page;

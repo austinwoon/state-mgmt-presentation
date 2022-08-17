@@ -1,8 +1,9 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import ColorSection from "./Pages/ColorSection";
-import { ContextStateModal } from "./Pages/ContextStateModal";
-import LocalStateModalPage from "./Pages/LocalStateModal";
-import Playground from "./Pages/Playground";
+import ColorSection from "./pages/ColorSection";
+import { ContextStateModal } from "./pages/ContextStateModal";
+import Page from "./pages/LocalStateModal";
+import Playground from "./pages/Playground";
+import Product from "./pages/Product";
 
 function App() {
   return (
@@ -10,8 +11,9 @@ function App() {
       <Routes>
         <Route path="/color" element={<ColorSection />} />
         <Route path="/" element={<Playground />} />
-        <Route path="/local-modal" element={<LocalStateModalPage />} />
+        <Route path="/local-modal" element={<Page />} />
         <Route path="/context-modal" element={<ContextStateModal />} />
+        <Route path="/product" element={<Product />} />
       </Routes>
     </BrowserRouter>
   );
