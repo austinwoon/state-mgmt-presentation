@@ -1,11 +1,9 @@
 import { Box, Text, Button } from "@chakra-ui/react";
 import { useContext } from "react";
 import makeComponentExpensive from "../../makeComponentExpensive";
-import { IsOpenContext } from "./ContextWrapper";
+import { GlobalContext } from "./ContextWrapper";
 
 export const InternalSection1 = () => {
-  makeComponentExpensive(50);
-
   return (
     <Box border="5px dashed black" padding="2">
       <Text>Internal section 1</Text>
@@ -15,7 +13,7 @@ export const InternalSection1 = () => {
 };
 
 export const InternalSection2 = () => {
-  const { toggleIsOpen } = useContext(IsOpenContext);
+  const { toggleIsOpen } = useContext(GlobalContext);
   return (
     <Box border="5px dashed blue" padding="2">
       <Text>Internal section 2</Text>

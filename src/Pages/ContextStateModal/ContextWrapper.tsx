@@ -1,21 +1,24 @@
 import { createContext, ReactNode, useCallback, useState } from "react";
 
-export const IsOpenContext = createContext({
+export const GlobalContext = createContext({
   isOpen: false,
   toggleIsOpen: () => {},
+  count: 0,
+  incrementCount: () => {},
 });
 
-export const IsOpenContextWrapper = ({ children }: { children: ReactNode }) => {
+export const GlobalContextWrapper = ({ children }: { children: ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [count, setCount] = useState(0);
 
-  const toggleIsOpen = useCallback(
-    () => setIsOpen((prev) => !prev),
-    [setIsOpen]
-  );
+  const toggleIsOpen = () => setIsOpen((prev) => !prev);
+  const incrementCount = () => setCount((cnt) => cnt + 1);
 
   return (
-    <IsOpenContext.Provider value={{ isOpen, toggleIsOpen }}>
+    <GlobalContext.Provider
+      value={{ isOpen, toggleIsOpen, count, incrementCount }}
+    >
       {children}
-    </IsOpenContext.Provider>
+    </GlobalContext.Provider>
   );
 };
