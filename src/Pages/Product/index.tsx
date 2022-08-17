@@ -9,9 +9,13 @@ import {
   NumberInputField,
   NumberInputStepper,
 } from "@chakra-ui/react";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
-export const Product = () => {
+export const Product = ({ title }: { title: string }) => {
+  useEffect(() => {
+    document.title = title;
+  }, []);
+
   const [no1, setNo1] = useState(0);
   const [no2, setNo2] = useState(0);
 

@@ -8,29 +8,22 @@ import {
   ModalFooter,
   Button,
 } from "@chakra-ui/react";
-import React, { useCallback, useContext, useState } from "react";
+import { useContext, useEffect } from "react";
+import { IsOpenContext, IsOpenContextWrapper } from "./ContextWrapper";
 import { NavBar } from "./Navbar";
 import { SideBar } from "./Sidebar";
 
-export const IsOpenContext = React.createContext({
-  isOpen: false,
-  toggleIsOpen: () => {},
-});
-
-export const ContextStateModal = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleIsOpen = useCallback(
-    () => setIsOpen((prev) => !prev),
-    [setIsOpen]
-  );
+export const ContextPage = ({ title }: { title: string }) => {
+  useEffect(() => {
+    document.title = title;
+  }, []);
 
   return (
-    <IsOpenContext.Provider value={{ isOpen, toggleIsOpen }}>
+    <IsOpenContextWrapper>
       <NavBar />
       <SideBar />
       <ModalContents />
-    </IsOpenContext.Provider>
+    </IsOpenContextWrapper>
   );
 };
 

@@ -1,5 +1,6 @@
 import { Heading, Box, Button, Flex } from "@chakra-ui/react";
-import { useState } from "react";
+import { atom, useAtom } from "jotai";
+import { useEffect, useState } from "react";
 const styles = {
   height: "100vh",
   width: "100vw",
@@ -7,8 +8,14 @@ const styles = {
   justifyContent: "center",
 };
 
-const Playground = () => {
-  const [count, setCount] = useState(0);
+const countAtom = atom(0);
+
+const Playground = ({ title }: { title: string }) => {
+  useEffect(() => {
+    document.title = title;
+  }, []);
+
+  const [count, setCount] = useAtom(countAtom);
 
   const handleAddCount = () => setCount((cnt) => cnt + 1);
 

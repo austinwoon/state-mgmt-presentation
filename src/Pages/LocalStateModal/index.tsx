@@ -9,11 +9,15 @@ import {
   ModalHeader,
   ModalOverlay,
 } from "@chakra-ui/react";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { NavBar } from "./Navbar";
 import { SideBar } from "./Sidebar";
 
-const Page = () => {
+const Page = ({ title }: { title: string }) => {
+  useEffect(() => {
+    document.title = title;
+  }, []);
+
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = useCallback(() => setIsOpen(true), [setIsOpen]);
